@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        h1 {
+            color: green;
+        }
+        .email {
+            font-size: 18px;
+            color: green;
+            text-decoration: none;
+        }
+        .message, .description {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .contact-form {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Support</h1>
+        <p class="message">Feel free to reach out to us at:</p>
+        <a href="mailto:sanjananevatiya@gmail.com" class="email">sanjananevatiya@gmail.com</a>
+        <p class="description">
+            Our support team is here to assist you with any issues or questions you may have. We strive to respond to all inquiries within 24 hours. For immediate assistance, you can also reach us via the following methods:
+        </p>
+        <ul class="description">
+            <li>Phone: 7748814074</li>
+            
+            <li>Mailing Address: 123 Support Lane, Shirpur</li>
+        </ul>
+        <p class="description">
+            Alternatively, you can fill out the form below, and one of our support representatives will get back to you as soon as possible.
+        </p>
+        <div class="contact-form">
+            <form action="submit_support_request.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+                
+               <button type="submit" style="background-color: green; color: white;">Send Message</button>
+
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>

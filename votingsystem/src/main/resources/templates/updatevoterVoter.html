@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Voter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #5cb85c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .back-link-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: #5cb85c;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .form-card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-card label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .form-card input[type="text"],
+        .form-card input[type="date"],
+        .form-card input[type="password"],
+        .form-card select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-card button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-card button:hover {
+            background-color: #4cae4c;
+        }
+
+        .error-message, .success-message {
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .error-message {
+            color: #d9534f; /* Error color */
+        }
+
+        .success-message {
+            color: #5bc0de; /* Success color */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Online Voting System</h1>
+    </div>
+    <div class="container">
+        <div class="back-link-container">
+            <a class="back-link" th:href="@{/voterdashboard}">Back to Dashboard</a>
+        </div>
+
+        <div class="form-card">
+            <h2>Update Voter</h2>
+
+            <!-- Display success or error message -->
+            <div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+            <div th:if="${successMessage}" class="success-message" th:text="${successMessage}"></div>
+
+            <form th:action="@{/updateVoterVoter}" method="post">
+                <input type="hidden" name="id" th:value="${voter.id}" />
+
+                <label for="voterName">Name:</label>
+                <input type="text" id="voterName" name="voterName" th:value="${voter.voterName}" required />
+
+                <label for="DOB">Date of Birth:</label>
+                <input type="date" id="DOB" name="DOB" th:value="${voter.DOB}" required />
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option th:value="${voter.gender}" th:text="${voter.gender}" selected></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" th:value="${voter.username}" required />
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" th:value="${voter.password}" required />
+
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" th:value="${voter.address}" required />
+
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

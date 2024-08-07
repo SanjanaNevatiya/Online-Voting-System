@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Voter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #5cb85c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .back-link-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: #5cb85c;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .form-card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-card input[type="text"] {
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .form-card button {
+            background-color: #5cb85c; /* Green color for update action */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-card button:hover {
+            background-color: #4cae4c; /* Darker green for hover effect */
+        }
+
+        .error-message {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #d9534f; /* Error color */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Online Voting System</h1>
+    </div>
+    <div class="container">
+        <div class="back-link-container">
+            <a class="back-link" th:href="@{/voterdashboard}">Back to Dashboard</a>
+        </div>
+
+        <div class="form-card">
+            <h2>Update Voter</h2>
+            <!-- Display error message if any -->
+            <div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+            <form th:action="@{/updateVoterIdVoter}" method="post">
+                <input type="text" name="voterId" placeholder="Enter Voter ID" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

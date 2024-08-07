@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: calc(45% - 40px);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .card a:hover {
+            background-color: #4cae4c;
+        }
+        
+        .go-home-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .go-home-button a {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            padding: 10px 20px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .go-home-button a:hover {
+            background-color: #4cae4c;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+    </div>
+    <div class="container">
+        <div class="card">
+            <a th:href="@{/saveVoter}">Register Voter</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/saveCandidate}">Register Candidate</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/voterlist}">View Voter List</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/candidatelist}">View Candidate List</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/deleteVoterPage}">Delete Voter by ID</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/deleteCandidatePage}">Delete Candidate by ID</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/viewVoterByIdPage}">View Voter by ID</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/viewCandidateByIdPage}">View Candidate by ID</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/updateVoterIdPage}">Update Voter</a>
+        </div>
+        <div class="card">
+            <a th:href="@{/updateCandidateIdPage}">Update Candidate</a>
+        </div>
+    </div>
+    
+    <div class="go-home-button">
+        <a th:href="@{/index}">Go to Home</a>
+    </div>
+</body>
+</html>

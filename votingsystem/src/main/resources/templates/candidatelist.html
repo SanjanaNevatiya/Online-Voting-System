@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            color: white;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Candidate List</h1>
+    </div>
+    <div class="container">
+        <a class="btn" th:href="@{/admindashboard}">Back to Dashboard</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Party</th>
+                    <th>Position</th>
+                    <th>Experience</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example of a Thymeleaf loop to populate the table -->
+                <tr th:each="candidate : ${candidates}">
+                    <td th:text="${candidate.id}"></td>
+                    <td th:text="${candidate.name}"></td>
+                    <td th:text="${candidate.DOB}"></td>
+                    <td th:text="${candidate.gender}"></td>
+                    <td th:text="${candidate.party}"></td>
+                    <td th:text="${candidate.position}"></td>
+                    <td th:text="${candidate.expierence}"></td>
+                    <td th:text="${candidate.address}"></td>
+                    <td th:text="${candidate.contact}"></td>
+                    <td th:text="${candidate.username}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

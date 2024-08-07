@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Voter by ID</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #5cb85c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card input[type="text"] {
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .card button {
+            background-color: #5cb85c; /* Green color for view action */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            max-width: 400px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #4cae4c; /* Darker green for hover effect */
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #5cb85c;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .error-message, .success-message {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
+        }
+
+        .voter-details {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .voter-details th, .voter-details td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .voter-details th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Online Voting System</h1>
+    </div>
+    <div class="container">
+        <a class="back-link" th:href="@{/admindashboard}">Back to Dashboard</a>
+
+        <div class="card">
+            <h2>View Voter by ID</h2>
+            <div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+             <div th:if="${successMessage}" class="success-message" th:text="${successMessage}"></div>
+            <form th:action="@{/viewVoterById}" method="get">
+                <input type="text" name="voterId" placeholder="Enter Voter ID to view" required>
+                <button type="submit">View Voter</button>
+            </form>
+        </div>
+
+        <!-- Only display voter details if there is no error message -->
+        <div class="card" th:if="${voter}">
+            <h2>Voter Details</h2>
+            <table class="voter-details">
+                <tr>
+                    <th>ID</th>
+                    <td th:text="${voter.id}"></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td th:text="${voter.VoterName}"></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td th:text="${voter.DOB}"></td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td th:text="${voter.gender}"></td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td th:text="${voter.username}"></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td th:text="${voter.address}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

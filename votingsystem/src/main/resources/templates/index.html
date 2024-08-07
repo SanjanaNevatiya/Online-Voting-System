@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://media.istockphoto.com/id/611606226/photo/white-computer-keyboard-with-vote-button.jpg?s=2048x2048&w=is&k=20&c=s-6UPxMxAMIhfmFtwsLryptPqquFVOYBdkt_B-rIRoU=') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: rgba(76, 174, 76, 0.8); /* Semi-transparent background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            width: 100%;
+            box-sizing: border-box;
+            flex: 1;
+            z-index: 1; /* Ensures content is above the background image */
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .card a {
+            text-decoration: none;
+            color: white;
+            background-color: #5cb85c;
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .card a:hover {
+            background-color: #4cae4c;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .feature {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .feature h3 {
+            color: #333;
+        }
+        .feature p {
+            color: #666;
+        }
+        .cta {
+            background-color: #5cb85c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin-top: 40px; /* Adds some space above the CTA */
+            margin-bottom: 20px; /* Adds space below the CTA */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%); /* Centers the CTA horizontally */
+        }
+        .cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: rgba(76, 174, 76, 0.8);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: auto; /* Pushes footer to the bottom */
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the Online Voting System</h1>
+        <p>Secure, Reliable, and Easy to Use</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>Admin Registration</h2>
+            <a th:href="@{/saveAdmin}">Register as Admin</a>
+        </div>
+        <div class="card">
+            <h2>Admin Login</h2>
+            <a th:href="@{/adminlogin}">Login as Admin</a>
+        </div>
+        <div class="card">
+            <h2>Voter Login</h2>
+            <a th:href="@{/voterlogin}">Login as Voter</a>
+        </div>
+        <div class="card">
+            <h2>Candidate Login</h2>
+            <a th:href="@{/candidatelogin}">Login as Candidate</a>
+        </div>
+    </div>
+    <div class="features">
+        <div class="feature">
+            <h3>Secure Voting</h3>
+            <p>Your votes are safe with our advanced security measures.</p>
+        </div>
+        <div class="feature">
+            <h3>User Friendly</h3>
+            <p>An easy-to-use interface for a smooth voting experience.</p>
+        </div>
+        <div class="feature">
+            <h3>Real-time Results</h3>
+            <p>Get instant results as soon as the voting ends.</p>
+        </div>
+    </div>
+    <div class="cta">
+        <h2>Ready to get started?</h2>
+        <p>Register now and be a part of the change!</p>
+    </div>
+    <div class="footer">
+        <p>All rights reserved. Designed by Sanjana Nevatiya.</p>
+    </div>
+</body>
+</html>

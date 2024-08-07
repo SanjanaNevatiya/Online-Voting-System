@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header .logout-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: #dc3545; /* Red color for logout button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header .logout-btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2, .card h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            max-width: 200px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+
+        .card .btn:hover {
+            background-color: #218838;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-info img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .profile-info .btn {
+            width: auto;
+            margin-top: 20px;
+        }
+
+        .faq-section, .resource-links {
+            text-align: left;
+            width: 100%;
+        }
+
+        .faq-section ul, .resource-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .faq-section li, .resource-links li {
+            margin-bottom: 10px;
+        }
+
+        .faq-section a, .resource-links a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        .faq-section a:hover, .resource-links a:hover {
+            text-decoration: underline;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 20px;
+            }
+        }
+
+        .grid-container-full {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Online Voting System</h1>
+        <button class="logout-btn" th:onclick="|location.href='@{/index}'|">Logout</button>
+    </div>
+    <div class="container">
+        <div class="card profile-info">
+            <h2>Candidate Profile</h2>
+            <h1>Welcome Candidate!</h1>
+            <button class="btn" th:onclick="|location.href='@{/updateCandidateIdPageCandidate}'|">Update My Profile</button>
+        </div>
+
+        <div class="grid-container">
+            <div class="card">
+                <h2>Information about Candidates</h2>
+                <p>View details of all candidates running for the upcoming elections.</p>
+                <button class="btn" th:onclick="|location.href='@{/candidatelistCandidate}'|">View Candidates</button>
+            </div>
+
+            <div class="card">
+                <h2>Information about voters</h2>
+                <p>View details of all voters who will caste the vote in upcoming elections.</p>
+               <button class="btn" th:onclick="|location.href='@{/voterlistCandidate}'|">View Voters</button>
+            </div>
+
+            <div class="card">
+                <h2>Contact Support</h2>
+                <p>If you have any issues or questions, please reach out to our support team.</p>
+                <a href="/contactsupport.html" class="btn" style="text-decoration: none;">Contact Support</a>
+            </div>
+        </div>
+
+        <div class="card resource-links">
+            <h3>External Resources</h3>
+            <ul>
+                <li><a href="https://www.usa.gov/election-office">USA.gov - Election Office</a></li>
+                <li><a href="https://www.vote.org">Vote.org</a></li>
+                <li><a href="https://www.eac.gov">U.S. Election Assistance Commission</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
